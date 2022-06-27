@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components';
-import { randomColor } from '../functions/randomColor';
 import { useDispatch, useSelector } from 'react-redux';
+
+//dispath
 import { addColorRecently, getColorsRecently } from '../redux/recently/recentlyAction';
-import Styles from "./Colors.module.css"
-import Color from './shared/Color';
 import { getSaved } from '../redux/saved/savedAction';
+
+// functions
+import { randomColor } from '../functions/randomColor';
+
+//Components
+import Color from './shared/Color';
+
+//Styles
+import styled from 'styled-components';
+import Styles from "./Colors.module.css"
 
 const Background = styled.div`
     display: flex;
@@ -13,6 +21,10 @@ const Background = styled.div`
     justify-content: space-around;
     background-color: ${props => props.color};
     height: calc(100vh - 50px);
+    @media screen and (max-width: 576px) {
+        flex-direction: column-reverse;
+    }
+
 `
 
 const Colors = () => {
@@ -40,7 +52,6 @@ const Colors = () => {
     return (
         <Background color={clickColor ? clickColor : color} >
             <div className={Styles.recently}>
-                
                 {
                     colors &&
                         colors.length ? colors.map(color => <Color key={color} color={color} setClickColor={setClickColor} /> ) : 

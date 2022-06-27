@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react'
-import { Route, Routes, Link, Navigate } from 'react-router-dom';
+import React from 'react'
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { Provider } from 'react-redux/es/exports';
 
+//Components
 import store from './redux/store';
-
 import Nav from './components/Nav';
 import Colors from './components/Colors';
 import Saved from './components/Saved';
 
+//Styles
 import "./App.css"
 
 const App = () => {

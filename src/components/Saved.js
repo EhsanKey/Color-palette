@@ -11,9 +11,11 @@ const Saved = () => {
 
     return (
         <div className={Styles.container}>
-            {
-                saved.map(item => <Color key={item} color={item} /> )
-            }
+            <div className={Styles.saved}>
+                {
+                    saved.map(item => <Color key={item} color={item} /> )
+                }
+            </div>
         </div>
     )
 }

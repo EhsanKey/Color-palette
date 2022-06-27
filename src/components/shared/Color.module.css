@@ -8,14 +8,12 @@
     border-radius: 10px;
 }
 
-
 .container h4 {
     width: 70px;
     text-align: center;
     cursor: copy;
 
 }
-
 
 .container svg {
     font-size: 30px;
@@ -31,3 +29,12 @@
     color: orange;
 }
 
+@media screen and (max-width: 576px) {
+    .container h4 {
+        font-size: 12px;    
+        width: 50px;
+    }
+    .container svg {
+        font-size: 25px;
+    }
+}
