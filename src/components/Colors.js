@@ -24,15 +24,17 @@ const Colors = () => {
     const [clickColor, setClickColor] = useState('');
 
     useEffect(() => {
-        setColor(randomColor())
+        if (!localStorage.getItem("getSaved")) localStorage.setItem("getSaved", JSON.stringify([]))
+        if (!localStorage.getItem("colorsRecently")) localStorage.setItem("colorsRecently", JSON.stringify([])) 
             dispatch(getColorsRecently())
+            setColor(randomColor())
             dispatch(getSaved())
     }, [])
 
     const clickHandler = () => {
         setClickColor("")
-        setColor(randomColor())
         dispatch(addColorRecently(color))
+        setColor(randomColor())
     }
 
     return (
@@ -40,10 +42,9 @@ const Colors = () => {
             <div className={Styles.recently}>
                 
                 {
-                    colors > 0 ? 
-                        colors.map(color => <Color key={color} color={color} setClickColor={setClickColor} /> ) :
-                            <h3>Recently</h3>
-
+                    colors &&
+                        colors.length ? colors.map(color => <Color key={color} color={color} setClickColor={setClickColor} /> ) : 
+                        <h3>Recently</h3> 
                 }
             </div>
             <div>

@@ -12,11 +12,6 @@ import "./App.css"
 
 const App = () => {
 
-    useEffect(() => {
-        if (!localStorage.getItem("getSaved")) localStorage.setItem("getSaved", JSON.stringify([]))
-        if (!localStorage.getItem("colorsRecently")) localStorage.setItem("colorsRecently", JSON.stringify([])) 
-    }, [])
-
     return (
         <Provider store={store}>
             <Nav />
