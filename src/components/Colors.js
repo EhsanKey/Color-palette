@@ -18,7 +18,7 @@ import Styles from "./Colors.module.css"
 const Background = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: ${props => props.color};
     height: calc(100vh - 50px);
     @media screen and (max-width: 576px) {
