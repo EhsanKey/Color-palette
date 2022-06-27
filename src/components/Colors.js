@@ -40,7 +40,7 @@ const Colors = () => {
             <div className={Styles.recently}>
                 
                 {
-                    colors.length > 0 ? 
+                    colors > 0 ? 
                         colors.map(color => <Color key={color} color={color} setClickColor={setClickColor} /> ) :
                             <h3>Recently</h3>
 
