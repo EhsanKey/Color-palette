@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; 
+    width: 95%;
+    padding: 5px;
+    border-bottom: 3PX solid black;
+    border-radius: 10px;
+}
+
+
+.container h4 {
+    width: 70px;
+    text-align: center;
+    cursor: copy;
+
+}
+
+
+.container svg {
+    font-size: 30px;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.noneSave {
+    color: #fff;
+}
+
+.save {
+    color: orange;
+}
+

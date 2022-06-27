@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { Route, Routes, Link, Navigate } from 'react-router-dom';
+import { Provider } from 'react-redux/es/exports';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import store from './redux/store';
+
+import Nav from './components/Nav';
+import Colors from './components/Colors';
+import Saved from './components/Saved';
+
+import "./App.css"
+
+const App = () => {
+
+    useEffect(() => {
+        if (!localStorage.getItem("getSaved")) localStorage.setItem("getSaved", JSON.stringify([]))
+        if (!localStorage.getItem("colorsRecently")) localStorage.setItem("colorsRecently", JSON.stringify([])) 
+    }, [])
+
+    return (
+        <Provider store={store}>
+            <Nav />
+            <Routes>
+                <Route path='/colors/*' element={<Colors />} /> 
+                <Route path='/saved' element={<Saved /> } /> 
+                <Route path='/' element={<Navigate to="/colors" /> } /> 
+            </Routes>
+        </Provider>
+    )
 }
 
 export default App;
