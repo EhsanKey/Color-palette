@@ -10,13 +10,14 @@ const Saved = () => {
     const saved = useSelector(state => state.savedReduserState)
 
     return (
-        <div className={Styles.container}>
-            <div className={Styles.saved}>
+        <main className={Styles.container}>
+            <section className={Styles.saved}>
                 {
-                    saved.map(item => <Color key={item} color={item} /> )
+                    saved.length ? saved.map(item => <Color key={item} color={item} /> ) : 
+                    <h2>Color is not available in saved list</h2>
                 }
-            </div>
-        </div>
+            </section>
+        </main>
     )
 }
 

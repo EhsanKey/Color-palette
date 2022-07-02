@@ -15,7 +15,7 @@ import Color from './shared/Color';
 import styled from 'styled-components';
 import Styles from "./Colors.module.css"
 
-const Background = styled.div`
+const Background = styled.main`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -51,17 +51,17 @@ const Colors = () => {
 
     return (
         <Background color={clickColor ? clickColor : color} >
-            <div className={Styles.recently}>
+            <section className={Styles.recently}>
                 {
                     colors &&
                         colors.length ? colors.map(color => <Color key={color} color={color} setClickColor={setClickColor} /> ) : 
                         <h3>Recently</h3> 
                 }
-            </div>
-            <div>
+            </section>
+            <section>
                 <button onClick={() => clickHandler()}>newColor</button>
                 <h4 onClick={() => navigator.clipboard.writeText(color)}>{clickColor ? clickColor : color}</h4>
-            </div>
+            </section>
         </Background >
     )
 }

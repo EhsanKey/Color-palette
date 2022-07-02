@@ -1,3 +1,19 @@
 .saved {
     margin: 10px 0px;
 }
+
+.container h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 200px 0;
+    color: red;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 400px) {
+    .container h2 {
+        font-size: 15px;
+    }
+}
+
